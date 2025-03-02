@@ -43,4 +43,5 @@ public class StorageService {
         searchables.addAll(new ArrayList<>(articleStorage.values()));
         return searchables;
     }
+
 }

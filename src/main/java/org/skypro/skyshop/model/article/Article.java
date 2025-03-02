@@ -38,4 +38,5 @@ public class Article implements Searchable {
     public String toString() {
         return title + ": " + content;
     }
+
 }
