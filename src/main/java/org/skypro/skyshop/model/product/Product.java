@@ -44,4 +44,5 @@ public abstract class Product implements Searchable {
     }
 
     public abstract boolean isSpecial();
+
 }

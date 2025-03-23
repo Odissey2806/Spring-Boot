@@ -18,4 +18,5 @@ public class FixPriceProduct extends Product {
     public String toString() {
         return getName() + ": Фиксированная цена " + FIXED_PRICE;
     }
+
 }
