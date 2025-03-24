@@ -1,24 +1,23 @@
 package org.skypro.skyshop.model.basket;
 
-import org.springframework.context.annotation.Scope;
-import org.springframework.context.annotation.ScopedProxyMode;
-import org.springframework.stereotype.Component;
+import org.skypro.skyshop.model.product.Product;
 
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.Collection;
+import java.util.List;
 import java.util.UUID;
 
-@Component
-@Scope(value = "session", proxyMode = ScopedProxyMode.TARGET_CLASS)
 public class ProductBasket {
-    private final Map<UUID, Integer> basketItems = new HashMap<>();
+    private List<Product> products;
 
-    public void addProduct(UUID productId) {
-        basketItems.put(productId, basketItems.getOrDefault(productId, 0) + 1);
+    public void addProduct(Product product) {
+        products.add(product);
     }
 
-    public Map<UUID, Integer> getBasketItems() {
-        return Collections.unmodifiableMap(basketItems);
+    public Collection<Product> getProducts() {
+        return products;
+    }
+
+    public boolean removeProduct(UUID productId) {
+        return products.removeIf(product -> product.getId().equals(productId));
     }
 }
